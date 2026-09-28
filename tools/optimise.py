@@ -8,6 +8,7 @@ survive a fresh export from WordPress/Elementor. Safe to run repeatedly.
 2. Hosted background videos -> 1080p fast-start MP4 + poster, played directly
    (not via Elementor's script, which restarts and resizes the video).
 3. Long-lived cache headers for static assets (_headers).
+4. Fluent Forms -> Web3Forms, so the contact form works without WordPress.
 
 Generated files are named after a hash of their source, so they are only
 rebuilt when the source image/video changes. Commit them to keep builds fast.
@@ -38,6 +39,51 @@ HEADERS = """/wp-content/*
 
 VIDEO_CSS = ('<style %s>.citycom-hero-video{position:absolute;inset:0;width:100%%;'
              'height:100%%;object-fit:cover}</style>' % MARK)
+
+# Fluent Forms needs WordPress to submit, so forms are sent to Web3Forms instead.
+WEB3FORMS_KEY = '78ea0c8b-62a1-4bca-9b73-da5446b9d26a'
+FORM_SUBJECT = 'New enquiry from the Citycom website'
+FIELD_NAMES = {'names[first_name]': 'Name', 'input_text': 'Phone', 'message': 'Message'}
+FORM_HIDDEN = (
+    f'<input type="hidden" name="access_key" value="{WEB3FORMS_KEY}">'
+    f'<input type="hidden" name="subject" value="{FORM_SUBJECT}">'
+    '<input type="hidden" name="from_name" value="Citycom website">'
+    '<input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">'
+)
+FORM_JS = '''<style %(m)s>.citycom-form-msg{margin-top:12px;font-weight:500}</style>
+<script %(m)s>
+document.addEventListener('submit', function (e) {
+  var form = e.target;
+  if (!form.classList || !form.classList.contains('citycom-web3form')) return;
+  e.preventDefault();
+  var btn = form.querySelector('[type=submit]'), label = btn.textContent;
+  var msg = form.parentNode.querySelector('.citycom-form-msg');
+  if (!msg) {
+    msg = document.createElement('div');
+    msg.className = 'citycom-form-msg';
+    msg.setAttribute('role', 'status');
+    form.after(msg);
+  }
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  msg.textContent = '';
+  fetch(form.action, {method: 'POST', body: new FormData(form), headers: {Accept: 'application/json'}})
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      if (!d.success) throw new Error(d.message);
+      form.reset();
+      msg.textContent = "Thanks, your message has been sent. We'll be in touch soon.";
+    })
+    .catch(function () {
+      msg.textContent = 'Sorry, your message could not be sent. Please try again, or contact us by phone or email.';
+    })
+    .finally(function () {
+      btn.disabled = false;
+      btn.textContent = label;
+    });
+});
+</script>
+''' % {'m': MARK}
 
 
 def short_hash(path):
@@ -149,15 +195,38 @@ def fix_background_video(s):
     return s[:tag.start()] + video + s[tag.end():], VIDEO_CSS + '\n'
 
 
+def fix_forms(s):
+    def open_tag(m):
+        cls = re.search(r'class="([^"]*)"', m.group(0)).group(1).split()
+        cls = [c for c in cls if c not in ('frm-fluent-form', 'ff-form-loading', 'ff_has_v3_recptcha')]
+        return (f'<form class="{" ".join(cls)} citycom-web3form" '
+                f'action="https://api.web3forms.com/submit" method="POST">' + FORM_HIDDEN)
+
+    def rep(m):
+        f = re.sub(r'^<form[^>]*>', open_tag, m.group(0))
+        f = re.sub(r'<input type="hidden"[^>]*name="(?:__fluent_form_embded_post_id|_wp_http_referer|'
+                   r'_fluentform_\d+_fluentformnonce)"[^>]*>', '', f)
+        for old, new in FIELD_NAMES.items():
+            f = f.replace(f'name="{old}"', f'name="{new}"')
+        return re.sub(r'(<(?:input|textarea)\b[^>]*aria-required="true")', r'\1 required', f)
+
+    s, n = re.subn(r'<form\b[^>]*class="frm-fluent-form[^"]*"[^>]*>.*?</form>', rep, s, flags=re.S)
+    if not n:
+        return s, ''
+    # Fluent's own script would hijack the submit and post to WordPress.
+    s = re.sub(r'<script id="fluent-form-submission-js"[^>]*></script>', '', s)
+    return s, FORM_JS
+
+
 def process(path):
     s = open(path, encoding='utf-8').read()
-    if MARK in s:
-        return False
+    # Each fix only matches untouched export markup, so re-running is a no-op.
     s, links = fix_header_image(s)
     s, css = fix_background_video(s)
-    if not (links or css):
+    s, form_js = fix_forms(s)
+    if not (links or css or form_js):
         return False
-    s = re.sub(r'(<head[^>]*>)', lambda m: m.group(1) + '\n' + links + css, s, count=1)
+    s = re.sub(r'(<head[^>]*>)', lambda m: m.group(1) + '\n' + links + css + form_js, s, count=1)
     open(path, 'w', encoding='utf-8').write(s)
     return True
 
