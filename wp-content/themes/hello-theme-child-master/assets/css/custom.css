@@ -1,0 +1,1127 @@
+/* =========================================
+   IPHONE HERO STYLING
+   ========================================= */
+
+:root{
+  --negro: #000;
+  --blanco: #fff;
+  --mainColor: #152839;
+}
+
+.iphone-mockup-wrap,
+.iphone-mockup-wrap * {
+  box-sizing: border-box;
+}
+
+.iphone-mockup-wrap{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* =========================================
+   3D STAGE
+   ========================================= */
+
+.scene-wrap{
+  --mockup-scale: 0.6;
+  width: calc(320px * var(--mockup-scale));
+  height: calc(640px * var(--mockup-scale));
+  position: relative;
+}
+
+.scene{
+  width: 320px;
+  height: 640px;
+
+  perspective: 1400px;
+  -webkit-perspective: 1400px;
+
+  transform: scale(var(--mockup-scale));
+  -webkit-transform: scale(var(--mockup-scale));
+
+  transform-origin: top left;
+  -webkit-transform-origin: top left;
+}
+
+/* =========================================
+   IPHONE 3D
+   ========================================= */
+
+.iphone3d{
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+
+  /* Start showing the back */
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+
+  /* Flip to front */
+  animation: revealFront 1.4s cubic-bezier(.25,.8,.25,1) 1.8s 1 forwards;
+  -webkit-animation: revealFront 1.4s cubic-bezier(.25,.8,.25,1) 1.8s 1 forwards;
+
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  will-change: transform;
+}
+
+/* =========================================
+   SAFARI / WEBKIT KEYFRAME
+   ========================================= */
+
+@keyframes revealFront{
+  0%{
+    transform: rotateY(180deg);
+  }
+
+  100%{
+    transform: rotateY(0deg);
+  }
+}
+
+@-webkit-keyframes revealFront{
+  0%{
+    -webkit-transform: rotateY(180deg);
+  }
+
+  100%{
+    -webkit-transform: rotateY(0deg);
+  }
+}
+
+/* =========================================
+   PHONE FACES
+   ========================================= */
+
+.face{
+  position: absolute;
+  inset: 0;
+
+  border-radius: 45px;
+  overflow: hidden;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+/* =========================================
+   FRONT FACE
+   ========================================= */
+
+.face.front{
+  background-color: var(--mainColor);
+
+  border: 1px solid rgba(255,255,255,.6);
+
+  box-shadow: inset 0 0 3px 1px #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+}
+
+/* =========================================
+   BLACK PHONE BORDER
+   ========================================= */
+
+.bordeNegro{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: calc(100% - 14px);
+  height: calc(100% - 14px);
+
+  border-radius: 40px;
+
+  background-color: var(--negro);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.bordeNegro:after{
+  content: "";
+
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 40px;
+
+  border: 7px solid var(--negro);
+
+  box-sizing: border-box;
+
+  pointer-events: none;
+
+  z-index: 100;
+}
+
+/* =========================================
+   NOTCH
+   ========================================= */
+
+.notch{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+
+  top: 0;
+
+  width: 150px;
+  height: 32px;
+
+  border-bottom-left-radius: 17px;
+  border-bottom-right-radius: 17px;
+
+  background-color: var(--negro);
+
+  z-index: 100;
+}
+
+.notch:before,
+.notch:after{
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  border: 7px solid transparent;
+}
+
+.notch:before{
+  left: -17px;
+  border-right-color: var(--negro);
+
+  transform: rotate(-50deg);
+  -webkit-transform: rotate(-50deg);
+}
+
+.notch:after{
+  right: -17px;
+  border-left-color: var(--negro);
+
+  transform: rotate(50deg);
+  -webkit-transform: rotate(50deg);
+}
+
+/* =========================================
+   MAIN SCREEN
+   ========================================= */
+
+.mainScreen{
+  width: calc(100% - 14px);
+  height: calc(100% - 14px);
+
+  border-radius: 32px;
+
+  background-color: var(--negro);
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+/* =========================================
+   APPLE LOGO
+   ========================================= */
+
+.appleLogo{
+  width: 70px;
+  height: 70px;
+
+  opacity: 0;
+
+  animation:
+    fadeInLogo .6s ease forwards 2.9s,
+    pulseLogo 2.2s ease-in-out infinite 3.5s;
+
+  -webkit-animation:
+    fadeInLogo .6s ease forwards 2.9s,
+    pulseLogo 2.2s ease-in-out infinite 3.5s;
+}
+
+.appleLogo svg{
+  width: 100%;
+  height: 100%;
+
+  color: #fff;
+}
+
+.appleLogo svg path{
+  fill: currentColor;
+}
+
+@keyframes fadeInLogo{
+  to{
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeInLogo{
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes pulseLogo{
+  0%{
+    opacity: .35;
+  }
+
+  50%{
+    opacity: 1;
+  }
+
+  100%{
+    opacity: .35;
+  }
+}
+
+@-webkit-keyframes pulseLogo{
+  0%{
+    opacity: .35;
+  }
+
+  50%{
+    opacity: 1;
+  }
+
+  100%{
+    opacity: .35;
+  }
+}
+
+/* =========================================
+   SIDE BUTTONS
+   ========================================= */
+
+.botones > *{
+  position: absolute;
+
+  left: -3px;
+
+  width: 3px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--mainColor)
+  );
+
+  border-radius: 20px 10px 10px 20px;
+}
+
+.botones .touchID{
+  top: 160px;
+
+  right: -3px;
+  left: auto;
+
+  height: 80px;
+
+  background: linear-gradient(
+    90deg,
+    var(--mainColor),
+    transparent
+  );
+
+  border-radius: 10px 20px 20px 10px;
+}
+
+.botones .switch{
+  top: 100px;
+  height: 25px;
+}
+
+.botones .vol{
+  top: 150px;
+  height: 45px;
+}
+
+.botones .vol.down{
+  top: 210px;
+}
+
+/* =========================================
+   BACK FACE
+   ========================================= */
+
+.face.back{
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+
+  border-radius: 0;
+}
+
+.face.back img{
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* =========================================
+   MOBILE STYLING
+   ========================================= */
+
+@media (max-width: 767px){
+
+  .iphone-mockup-wrap{
+    padding: 30px 10px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .scene-wrap{
+    --mockup-scale: 0.48;
+
+    width: calc(320px * var(--mockup-scale));
+    height: calc(640px * var(--mockup-scale));
+
+    flex-shrink: 0;
+  }
+
+  .scene{
+    width: 320px;
+    height: 640px;
+
+    transform: scale(var(--mockup-scale));
+    -webkit-transform: scale(var(--mockup-scale));
+
+    transform-origin: top left;
+    -webkit-transform-origin: top left;
+  }
+
+  .face{
+    border-radius: 38px;
+  }
+
+  .bordeNegro{
+    border-radius: 34px;
+  }
+
+  .bordeNegro:after{
+    border-radius: 34px;
+  }
+
+  .mainScreen{
+    border-radius: 28px;
+  }
+
+  .notch{
+    width: 130px;
+    height: 28px;
+
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+
+  .appleLogo{
+    width: 58px;
+    height: 58px;
+  }
+}
+
+/* =========================================
+   SMALLER PHONES
+   ========================================= */
+
+@media (max-width: 480px){
+
+  .iphone-mockup-wrap{
+    padding: 20px 5px;
+  }
+
+  .scene-wrap{
+    --mockup-scale: 0.42;
+  }
+}
+
+/* =========================================
+   VERY SMALL PHONES
+   ========================================= */
+
+@media (max-width: 360px){
+
+  .scene-wrap{
+    --mockup-scale: 0.38;
+  }
+
+  .iphone-mockup-wrap{
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* =========================================
+   HERO UNDERLINE STYLING
+   ========================================= */
+
+.telecoms-underline{
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.telecoms-underline::after{
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  bottom: -5px;
+
+  height: 8px;
+
+  background: #063458;
+
+  border-radius: 2px;
+}
+
+/* =========================================
+   BANNER STYLING
+   ========================================= */
+
+.logo-slider{
+  width: 100%;
+  overflow: hidden;
+
+  padding: 0;
+  margin: 0;
+}
+
+.logo-track{
+  display: flex;
+  align-items: center;
+
+  width: max-content;
+
+  padding: 0;
+  margin: 0;
+
+  animation: logo-scroll 18s linear infinite;
+
+  will-change: transform;
+}
+
+.logo-track a{
+  width: 180px;
+  height: 120px;
+
+  margin: 0 20px;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.logo-track img{
+  width: 150px;
+  height: 55px;
+
+  object-fit: contain;
+  object-position: center;
+
+  display: block;
+
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================
+   CONTINUOUS LOOP
+   ========================================= */
+
+@keyframes logo-scroll{
+
+  from{
+    transform: translateX(0);
+  }
+
+  to{
+    transform: translateX(-33.333333%);
+  }
+}
+
+@-webkit-keyframes logo-scroll{
+
+  from{
+    -webkit-transform: translateX(0);
+  }
+
+  to{
+    -webkit-transform: translateX(-33.333333%);
+  }
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 1024px){
+
+  .logo-track a{
+    width: 160px;
+    height: 60px;
+
+    margin: 0 15px;
+  }
+
+  .logo-track img{
+    width: 135px;
+    height: 50px;
+  }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 767px){
+
+  .logo-slider{
+    padding: 20px;
+  }
+
+  .logo-track a{
+    width: 130px;
+    height: 55px;
+
+    margin: 0 10px;
+  }
+
+  .logo-track img{
+    width: 110px;
+    height: 45px;
+  }
+}
+
+/* =========================================
+   CITYCOM IN NUMBERS
+   ========================================= */
+
+:root{
+  --navy: #0D1E3D;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.stats-section{
+  background: #fff;
+  padding: 80px 24px;
+}
+
+.stats-inner{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.stats-eyebrow{
+  text-align: center;
+
+  font-family: 'DM Sans', sans-serif;
+
+  color: #000;
+
+  font-size: 20px;
+  font-weight: 500;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  margin: 0 0 12px;
+}
+
+.stats-heading{
+  text-align: center;
+
+  color: var(--navy);
+
+  font-family: 'Bebas Neue', sans-serif !important;
+
+  font-weight: 400;
+
+  font-size: 50px !important;
+
+  font-size: clamp(28px, 4vw, 42px);
+
+  letter-spacing: 1px;
+
+  margin: 0 0 60px;
+}
+
+.stats-grid{
+  display: flex;
+
+  align-items: stretch;
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+
+  gap: 48px 0;
+}
+
+.stat{
+  flex: 1 1 220px;
+
+  text-align: center;
+
+  padding: 0 24px;
+
+  position: relative;
+}
+
+.stat:not(:last-child)::after{
+  content: "";
+
+  position: absolute;
+
+  top: 8px;
+  right: 0;
+  bottom: 8px;
+
+  width: 1px;
+
+  background: rgba(0,0,0,.12);
+}
+
+@media (max-width: 700px){
+
+  .stat:not(:last-child)::after{
+    content: none;
+  }
+
+  .stat:not(:last-child){
+    padding-bottom: 40px;
+
+    border-bottom: 1px solid rgba(0,0,0,.12);
+  }
+}
+
+.stat-number{
+  font-family: 'Bebas Neue', sans-serif;
+
+  font-weight: 400;
+
+  font-size: clamp(52px, 7vw, 84px);
+
+  line-height: 1;
+
+  color: var(--navy);
+
+  letter-spacing: 1px;
+
+  white-space: nowrap;
+
+  font-size: 46px !important;
+}
+
+.stat-label{
+  margin-top: 14px;
+
+  font-family: 'DM Sans', sans-serif;
+
+  color: #000;
+
+  font-size: 16px !important;
+
+  font-weight: 500;
+
+  letter-spacing: .3px;
+
+  line-height: 1.5;
+
+  max-width: 220px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================================
+   STATS MOBILE
+   ========================================= */
+
+@media (max-width: 700px){
+
+  .stats-section{
+    padding: 55px 20px;
+  }
+
+  .stats-inner{
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .stats-eyebrow{
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+  }
+
+  .stats-heading{
+    font-size: 35px !important;
+
+    line-height: 1.05;
+
+    letter-spacing: .5px;
+
+    margin-bottom: 40px;
+  }
+
+  .stats-grid{
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0;
+
+    width: 100%;
+  }
+
+  .stat{
+    width: 100%;
+
+    flex: none;
+
+    padding: 0 10px 35px;
+
+    margin-bottom: 35px;
+  }
+
+  .stat:not(:last-child){
+    padding-bottom: 35px;
+
+    border-bottom: 1px solid rgba(0,0,0,.12);
+  }
+
+  .stat:last-child{
+    padding-bottom: 0;
+
+    margin-bottom: 0;
+  }
+
+  .stat-number{
+    font-size: clamp(52px, 16vw, 72px);
+
+    line-height: .95;
+
+    letter-spacing: 1px;
+
+    font-size: 35px !important;
+  }
+
+  .stat-label{
+    font-size: 15px;
+
+    line-height: 1.45;
+
+    max-width: 280px;
+
+    margin-top: 12px;
+  }
+}
+
+/* =========================================
+   BUILT AROUND YOUR BUSINESS
+   ========================================= */
+
+.bb-features{
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 30px;
+}
+
+.bb-feature{
+  border-top: 1px solid rgba(0,0,0,0.2);
+
+  padding-top: 18px;
+}
+
+.bb-number{
+  display: block;
+
+  margin-bottom: 18px;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 500;
+
+  opacity: 0.8;
+
+  color: #fff;
+}
+
+.bb-feature h3{
+  margin: 0 0 10px;
+
+  font-family: "Bebas Neue", sans-serif;
+
+  font-size: 30px;
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  color: #fff;
+}
+
+.bb-feature p{
+  margin: 0;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 15px;
+
+  line-height: 1.55;
+
+  color: #fff;
+}
+
+@media (max-width: 1024px){
+
+  .bb-features{
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 35px 25px;
+  }
+}
+
+@media (max-width: 600px){
+
+  .bb-features{
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+
+    text-align: center;
+  }
+}
+
+/* =========================================
+   VOIP FEATURES
+   ========================================= */
+
+.voip-features{
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 30px;
+}
+
+.voip-feature{
+  border-top: 1px solid rgba(0,0,0,0.2);
+
+  padding-top: 18px;
+}
+
+.voip-number{
+  display: block;
+
+  margin-bottom: 18px;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 500;
+
+  opacity: 0.8;
+
+  color: #0D1E3D;
+}
+
+.voip-feature h3{
+  margin: 0 0 10px;
+
+  font-family: "Bebas Neue", sans-serif;
+
+  font-size: 30px;
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  color: #0D1E3D;
+}
+
+.voip-feature p{
+  margin: 0;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 15px;
+
+  line-height: 1.55;
+
+  color: #0D1E3D;
+}
+
+@media (max-width: 1024px){
+
+  .voip-features{
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 35px 25px;
+  }
+}
+
+@media (max-width: 600px){
+
+  .voip-features{
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+
+    text-align: center;
+  }
+}
+
+/* =========================================
+   SAFARI / WEBKIT PERFORMANCE FIX
+   ========================================= */
+
+/*
+   Safari-specific rules.
+
+   We deliberately do NOT use:
+   @supports (-webkit-hyphens: none)
+
+   because that is not a reliable Safari-only
+   browser test.
+*/
+
+/* -----------------------------------------
+   3D IPHONE
+   ----------------------------------------- */
+
+.iphone3d{
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.iphone3d .face{
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+/* -----------------------------------------
+   PHONE BACK IMAGE
+   ----------------------------------------- */
+
+.face.back img{
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  display: block;
+}
+
+/* -----------------------------------------
+   LOGO MARQUEE
+   ----------------------------------------- */
+
+.logo-track{
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* -----------------------------------------
+   PREVENT HORIZONTAL OVERFLOW
+   ----------------------------------------- */
+
+html,
+body{
+  overflow-x: hidden;
+}
+
+/* =========================================
+   ULTRA-WIDE / HIGH-ZOOM SAFETY
+   ========================================= */
+
+/*
+   IMPORTANT:
+   Do NOT apply max-width to .scene or .scene-wrap.
+   The iPhone uses a fixed 320x640 3D stage
+   which is deliberately scaled with transform.
+*/
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+/* Prevent Elementor sections from creating
+   horizontal overflow */
+.elementor-section,
+.elementor-container,
+.elementor-widget-wrap {
+    max-width: 100%;
+}
+
+/* Logo marquee */
+.logo-slider {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.logo-track {
+    max-width: none;
+}
