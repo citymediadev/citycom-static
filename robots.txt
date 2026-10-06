@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /wp-admin/
 Allow: /wp-admin/admin-ajax.php
 
-Sitemap: http://admin.local/sitemap_index.xml
+Sitemap: http://citycom.local/sitemap_index.xml
