@@ -26,11 +26,24 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SKIP_DIRS = {'.git', 'tools', 'wp-content', 'wp-includes', 'wp-admin', 'elementor-hf'}
 MARK = 'data-citycom-opt'
 
+# Simply Static exports absolute URLs on the live domain; asset URLs may carry it.
+SITE = 'https://citycomuk.com'
+SITE_RE = r'(?:https?://(?:www\.)?citycomuk\.com)?'
+
 DESKTOP_WIDTH = 1920
 MOBILE_WIDTH = 1080
 WEBP_QUALITY = 82
 
-HEADERS = """/wp-content/*
+HEADERS = """/*
+  Strict-Transport-Security: max-age=31536000
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+/wp-content/*
   Cache-Control: public, max-age=31536000, immutable
 
 /wp-includes/*
@@ -94,8 +107,13 @@ def short_hash(path):
     return h.hexdigest()[:8]
 
 
+def site_path(url):
+    """'https://citycomuk.com/wp-content/x.jpg' -> '/wp-content/x.jpg'."""
+    return re.sub('^' + SITE_RE, '', url)
+
+
 def local_path(url):
-    return os.path.join(ROOT, url.lstrip('/'))
+    return os.path.join(ROOT, site_path(url).lstrip('/'))
 
 
 def ffmpeg():
@@ -153,7 +171,8 @@ def fix_header_image(s):
     if not m:
         return s, ''
     pat = re.compile(r'(elementor-element-' + m.group(1) +
-                     r'[^{}]*\{[^{}]*background-image:url\("?)(/wp-content/[^")]+\.(?:jpe?g|png))("?\))', re.I)
+                     r'[^{}]*\{[^{}]*background-image:url\("?)' + SITE_RE +
+                     r'(/wp-content/[^")]+\.(?:jpe?g|png))("?\))', re.I)
     chosen = {}
 
     def rep(mm):
@@ -184,7 +203,7 @@ def fix_background_video(s):
         return s, ''
     ds += len('data-settings="')
     settings = json.loads(html.unescape(s[ds:s.find('"', ds)]))
-    url = settings.get('background_video_link', '')
+    url = site_path(settings.get('background_video_link', ''))
     if not url.startswith('/wp-content/') or not os.path.exists(local_path(url)):
         return s, ''
     start = settings.get('background_video_start') or 0
@@ -243,6 +262,9 @@ def main():
     with open(os.path.join(ROOT, '_headers'), 'w') as f:
         f.write(HEADERS)
     print(f'done: {changed} page(s) updated')
+    # On Cloudflare Pages the repo root is the published site; keep this script out of it.
+    if os.environ.get('CF_PAGES'):
+        shutil.rmtree(os.path.join(ROOT, 'tools'), ignore_errors=True)
 
 
 if __name__ == '__main__':
