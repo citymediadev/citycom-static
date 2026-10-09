@@ -1,151 +1,143 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/main-sitemap.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="https://citycomuk.com/main-sitemap.xsl"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>/</loc>
+		<loc>https://citycomuk.com/</loc>
 		<lastmod>2026-09-28T12:47:11+00:00</lastmod>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/O2.svg</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/O2.svg</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Vodafone.svg</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Vodafone.svg</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Three-scaled.png</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Three-scaled.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/O2.svg</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/O2.svg</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Vodafone.svg</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Vodafone.svg</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Three-scaled.png</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Three-scaled.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/O2.svg</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/O2.svg</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Vodafone.svg</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Vodafone.svg</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Three-scaled.png</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Three-scaled.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/O2.svg</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/O2.svg</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Vodafone.svg</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Vodafone.svg</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Three-scaled.png</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Three-scaled.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/City-Print-Frame-Capture-6-1-scaled.jpg</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/City-Print-Frame-Capture-6-1-scaled.jpg</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Artboard-20-copy-5-1024x1024-1.png</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Artboard-20-copy-5-1024x1024-1.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/March-Image10-scaled.jpg</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/March-Image10-scaled.jpg</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Artboard-21-1-1024x1024-1.png</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Artboard-21-1-1024x1024-1.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/March-Image8-scaled.jpg</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/March-Image8-scaled.jpg</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Artboard-20-copy-6-1024x1024-1.png</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Artboard-20-copy-6-1024x1024-1.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/City-Print-Frame-Capture-9-scaled.jpg</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/City-Print-Frame-Capture-9-scaled.jpg</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Artboard-20-1-1024x1024-1.png</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Artboard-20-1-1024x1024-1.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Artboard-20-copy-12-1024x1024-1.png</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Artboard-20-copy-12-1024x1024-1.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Artboard-20-copy-10-1024x1024-1.png</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Artboard-20-copy-10-1024x1024-1.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Artboard-20-copy-9-1024x1024-1.png</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Artboard-20-copy-9-1024x1024-1.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Artboard-20-copy-11-1024x1024-1.png</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Artboard-20-copy-11-1024x1024-1.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Artboard-20-copy-13-1024x1024-1.png</image:loc>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Artboard-20-copy-13-1024x1024-1.png</image:loc>
 		</image:image>
 	</url>
 	<url>
-		<loc>/business-broadband/</loc>
+		<loc>https://citycomuk.com/mifis-portable/</loc>
+		<lastmod>2026-10-09T10:16:04+00:00</lastmod>
+	</url>
+	<url>
+		<loc>https://citycomuk.com/voip-systems/</loc>
+		<lastmod>2026-10-09T10:16:04+00:00</lastmod>
+	</url>
+	<url>
+		<loc>https://citycomuk.com/business-mobiles-tariffs/</loc>
+		<lastmod>2026-10-09T10:16:02+00:00</lastmod>
+		<image:image>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/O2.svg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Vodafone.svg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Three-scaled.png</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/O2.svg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Vodafone.svg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Three-scaled.png</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/O2.svg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Vodafone.svg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Three-scaled.png</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/O2.svg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Vodafone.svg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://citycomuk.com/wp-content/uploads/2026/08/Three-scaled.png</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://citycomuk.com/business-broadband/</loc>
 		<lastmod>2026-09-25T10:47:36+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/voip-systems/</loc>
-		<lastmod>2026-09-25T10:47:35+00:00</lastmod>
-	</url>
-	<url>
-		<loc>/business-mobiles-tariffs/</loc>
-		<lastmod>2026-09-25T10:41:21+00:00</lastmod>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/O2.svg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Vodafone.svg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Three-scaled.png</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/O2.svg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Vodafone.svg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Three-scaled.png</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/O2.svg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Vodafone.svg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Three-scaled.png</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/O2.svg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Vodafone.svg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/08/Three-scaled.png</image:loc>
-		</image:image>
-	</url>
-	<url>
-		<loc>/about/</loc>
+		<loc>https://citycomuk.com/about/</loc>
 		<lastmod>2026-09-25T10:35:12+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/contact/</loc>
+		<loc>https://citycomuk.com/contact/</loc>
 		<lastmod>2026-09-11T09:37:31+00:00</lastmod>
-	</url>
-	<url>
-		<loc>/privacy-policy/</loc>
-		<lastmod>2026-09-11T09:29:09+00:00</lastmod>
-	</url>
-	<url>
-		<loc>/cookie-policy/</loc>
-		<lastmod>2026-09-11T09:27:42+00:00</lastmod>
-	</url>
-	<url>
-		<loc>/mifis-portable/</loc>
-		<lastmod>2026-08-26T08:40:07+00:00</lastmod>
 	</url>
 </urlset>
 <!-- XML Sitemap generated by Rank Math SEO Plugin (c) Rank Math - rankmath.com -->

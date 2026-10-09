@@ -54,7 +54,7 @@ h2.customize-control-title:focus {
   padding: 0;
   width: 90px;
   height: 25px;
-  background-image: url("/wp-content/plugins/jeg-elementor-kit/lib/jeg-framework/assets/images/jeg-bottom.png");
+  background-image: url("https://citycomuk.com/wp-content/plugins/jeg-elementor-kit/lib/jeg-framework/assets/images/jeg-bottom.png");
   background-repeat: no-repeat;
   background-position: center center;
 }
@@ -1134,7 +1134,7 @@ span.CodeMirror-selectedtext {
 #available-widgets [class*=ads] .widget-title:before,
 #available-widgets [class*=module_element_header] .widget-title:before {
     content: '';
-    background: url(/wp-content/plugins/jeg-elementor-kit/assets/img/admin/widget_sprites.png) 0 0 no-repeat;
+    background: url(https://citycomuk.com/wp-content/plugins/jeg-elementor-kit/assets/img/admin/widget_sprites.png) 0 0 no-repeat;
     height: 26px;
 }
 #available-widgets [class*=module_block_3] .widget-title:before {

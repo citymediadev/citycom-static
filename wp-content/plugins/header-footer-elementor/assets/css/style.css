@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'hfe';
-    src:  url('/wp-content/plugins/header-footer-elementor/assets/fonts/hfe.eot?1yt2tv');
-    src:  url('/wp-content/plugins/header-footer-elementor/assets/fonts/hfe.eot?1yt2tv#iefix') format('embedded-opentype'),
-        url('/wp-content/plugins/header-footer-elementor/assets/fonts/hfe.ttf?1yt2tv') format('truetype'),
-        url('/wp-content/plugins/header-footer-elementor/assets/fonts/hfe.woff?1yt2tv') format('woff'),
-        url('/wp-content/plugins/header-footer-elementor/assets/fonts/hfe.svg?1yt2tv#hfe') format('svg');
+    src:  url('https://citycomuk.com/wp-content/plugins/header-footer-elementor/assets/fonts/hfe.eot?1yt2tv');
+    src:  url('https://citycomuk.com/wp-content/plugins/header-footer-elementor/assets/fonts/hfe.eot?1yt2tv#iefix') format('embedded-opentype'),
+        url('https://citycomuk.com/wp-content/plugins/header-footer-elementor/assets/fonts/hfe.ttf?1yt2tv') format('truetype'),
+        url('https://citycomuk.com/wp-content/plugins/header-footer-elementor/assets/fonts/hfe.woff?1yt2tv') format('woff'),
+        url('https://citycomuk.com/wp-content/plugins/header-footer-elementor/assets/fonts/hfe.svg?1yt2tv#hfe') format('svg');
     font-weight: normal;
     font-style: normal;
 }

@@ -1,5 +1,5 @@
 .gutenverse-banner:not(.fetch) {
-	background: url('/wp-content/plugins/jeg-elementor-kit/assets/banner/gutenverse/gutenverse-background.svg');
+	background: url('https://citycomuk.com/wp-content/plugins/jeg-elementor-kit/assets/banner/gutenverse/gutenverse-background.svg');
 	display: inline-block;
 	width: 300px;
 	height: 300px;
