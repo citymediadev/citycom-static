@@ -1125,3 +1125,141 @@ body {
 .logo-track {
     max-width: none;
 }
+/* Our Group logos in the header.
+   The header sits over dark hero images, so "Our group" is white text and
+   each logo sits on its own white tile to keep its brand colours readable. */
+.cc-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cc-group__label {
+    margin-right: 6px;
+    padding-left: 18px;
+    border-left: 1px solid rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.cc-group a {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding: 0 14px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(6, 18, 40, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cc-group a:hover,
+.cc-group a:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(6, 18, 40, 0.28);
+}
+
+.cc-group img {
+    display: block;
+    flex-shrink: 0;
+    max-width: none;
+    height: auto;
+}
+
+/* City Print's wordmark is small next to its icon, so it gets more width */
+.cc-group img.cc-group__media { width: 102px; }
+.cc-group img.cc-group__hr    { width: 75px; }
+.cc-group img.cc-group__print { width: 118px; }
+
+/* Desktop: sits beside the menu icon without affecting the logo/menu layout */
+@media (min-width: 1025px) {
+    .elementor-66 .elementor-element.elementor-element-6b36fdd8 {
+        position: relative;
+    }
+
+    .elementor-66 .elementor-element.cc-group-pill-wrap {
+        position: absolute;
+        z-index: 5;   /* above the transparent menu container, so the links are clickable */
+        top: calc(50% - 15px);
+        /* clear of the menu icon, which sits inside the 1140px boxed width */
+        right: calc(max(0px, (100% - 1140px) / 2) + 82px);
+        width: auto;
+        margin: 0;
+        transform: translateY(-50%);
+    }
+}
+
+/* Tablet/mobile: "Our group" and the tiles sit below the logo + menu row */
+.cc-group--bar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding-top: 16px;
+}
+
+.cc-group--bar .cc-group__label {
+    flex: 0 0 100%;
+    margin: 0 0 2px;
+    padding: 0;
+    border: 0;
+    font-size: 10px;
+    text-align: center;
+}
+
+.cc-group--bar a {
+    height: 34px;
+    padding: 0 10px;
+    border-radius: 6px;
+}
+
+.cc-group--bar img.cc-group__media { width: 78px; }
+.cc-group--bar img.cc-group__hr    { width: 60px; }
+.cc-group--bar img.cc-group__print { width: 92px; }
+
+@media (max-width: 1024px) {
+    .elementor-66 .elementor-element.cc-group-bar-wrap {
+        width: 100%;
+        margin: 0;
+    }
+
+    /* The header is transparent over the page banner and is now taller, so give
+       the first banner extra top room (its background grows with it). The home
+       hero already clears the header. */
+    body:not(.home) [data-elementor-type="wp-page"] > .elementor-top-section:first-child,
+    body:not(.home) [data-elementor-type="wp-page"] > .e-con:first-child {
+        padding-top: 60px !important;
+    }
+
+}
+
+@media (max-width: 767px) {
+    /* sit close under the logo + menu row */
+    .cc-group--bar {
+        padding-top: 0;
+    }
+
+    .elementor-66 .elementor-element.cc-group-bar-wrap {
+        margin-top: -10px;
+    }
+}
+
+@media (max-width: 380px) {
+    .cc-group--bar {
+        gap: 6px;
+    }
+
+    .cc-group--bar a {
+        padding: 0 8px;
+    }
+
+    .cc-group--bar img.cc-group__media { width: 64px; }
+    .cc-group--bar img.cc-group__hr    { width: 50px; }
+    .cc-group--bar img.cc-group__print { width: 78px; }
+}
